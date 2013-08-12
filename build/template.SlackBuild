@@ -63,11 +63,11 @@ fi
 
 set -e 
 
-if [ ! -r $PRGNAM-$VERSION.tar.bz2 ] ; then
-   wget -c http://archive.xfce.org/src/xfce/$PRGNAM/$PRGNAM-$VERSION.tar.bz2
+if [ ! -r $PRGNAM-$VERSION.tar.xz ] ; then
+   wget -c http://download.kde.org/stable/$VERSION/src/$PRGNAM-$VERSION.tar.xz
 fi
 
-md5sum -c $PRGNAM-$VERSION.tar.bz2.md5
+md5sum -c $PRGNAM-$VERSION.tar.xz.md5
 
 exit 1
 
@@ -75,7 +75,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvjf $CWD/$PRGNAM-$VERSION.tar.bz2 || exit 1
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz || exit 1
 cd $PRGNAM-$VERSION || exit 1
 chown -R root:root .
 find . \
